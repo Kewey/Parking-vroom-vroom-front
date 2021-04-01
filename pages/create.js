@@ -3,12 +3,12 @@ import Link from 'next/link'
 import styles from '../styles/Form.module.css'
 import { useForm } from 'react-hook-form'
 import { api } from '../env'
+import { useEffect } from 'react'
 
 export default function Create() {
 	const { register, handleSubmit } = useForm()
 	let loading = false
 	const onSubmit = (data) => {
-		console.log(`data`, data)
 		loading = true
 		fetch(api + 'users', {
 			method: 'POST',
