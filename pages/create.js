@@ -7,7 +7,6 @@ import { api } from '../env'
 export default function Create() {
 	const { register, handleSubmit } = useForm()
 	let loading = false
-	console.log(`api`, api)
 	const onSubmit = (data) => {
 		console.log(`data`, data)
 		loading = true
