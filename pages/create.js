@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../styles/Form.module.css'
 import { useForm } from 'react-hook-form'
+import { api } from '../env'
 
 export default function Create() {
 	const { register, handleSubmit } = useForm()
@@ -9,7 +10,7 @@ export default function Create() {
 	const onSubmit = (data) => {
 		console.log(`data`, data)
 		loading = true
-		fetch('http://127.0.0.1/api/users', { method: 'POST', body: data })
+		fetch(api + 'users', { method: 'POST', body: data })
 			.then(() => console.log('logged'))
 			.catch((err) => console.log('error', err))
 			.finally(() => (loading = false))
