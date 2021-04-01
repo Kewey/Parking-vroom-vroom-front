@@ -10,7 +10,14 @@ export default function Create() {
 	const onSubmit = (data) => {
 		console.log(`data`, data)
 		loading = true
-		fetch(api + 'users', { method: 'POST', body: data })
+		fetch(api + 'users', {
+			method: 'POST',
+			headers: {
+				Accept: 'application/json, text/plain, */*',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
 			.then(() => console.log('logged'))
 			.catch((err) => console.log('error', err))
 			.finally(() => (loading = false))
