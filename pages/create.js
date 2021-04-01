@@ -3,7 +3,6 @@ import Link from 'next/link'
 import styles from '../styles/Form.module.css'
 import { useForm } from 'react-hook-form'
 import { api } from '../env'
-import { useEffect } from 'react'
 
 export default function Create() {
 	const { register, handleSubmit } = useForm()
@@ -27,7 +26,7 @@ export default function Create() {
 		<div className={styles.container}>
 			<Head>
 				<title>Inscription | Vroom vroom</title>
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/logo-vroom-vroom.png' />
 			</Head>
 
 			<main className={styles.main}>

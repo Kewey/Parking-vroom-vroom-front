@@ -1,25 +1,35 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../styles/App.module.css'
+import Image from 'next/image'
 
 export default function Index() {
 	return (
 		<div className={styles.container}>
 			<Head>
 				<title>Panneau de control | Vroom vroom</title>
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/logo-vroom-vroom.png' />
+
 			</Head>
 
-			<header className={styles.header}>
-				<Link href='/home/profil'>Profil</Link>
-				<Link href='/login'>Quitter</Link>
-			</header>
-
-			<main className={styles.main}>
-				<sidebar>
+			<sidebar>
+				<div className={styles.sidebarMain}>
+					<img src="/logo-vroom-vroom.png" height={50} width={50} />
+					<h4>Parking <br/><span>Vroom vroom</span></h4>
+				</div>
+				<nav>
+					<h5>Menu</h5>
+					<Link href='/home'>Accueil</Link>
 					<Link href='/home/location'>Mes locations</Link>
 					<Link href='/home/place'>Mes places</Link>
-				</sidebar>
+				</nav>
+			</sidebar>
+
+			<main className={styles.main}>
+				<header className={styles.header}>
+					<Link href='/home/profil'>Profil</Link>
+					<Link href='/login'>Quitter</Link>
+				</header>
 
 				<section>
 					<h1>Bonjour Michel,</h1>
@@ -46,11 +56,11 @@ export default function Index() {
             </Link>
           </div>
 				</section>
-			</main>
 
 			<footer className={styles.footer}>
 				<p>Powered by Tom & Jordan</p>
 			</footer>
+			</main>
 		</div>
 	)
 }

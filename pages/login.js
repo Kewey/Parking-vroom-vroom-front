@@ -7,7 +7,7 @@ export default function Login() {
 		<div className={styles.container}>
 			<Head>
 				<title>Connexion | Vroom vroom</title>
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/logo-vroom-vroom.png' />
 			</Head>
 
 			<main className={styles.main}>
