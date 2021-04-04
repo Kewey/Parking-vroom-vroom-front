@@ -65,7 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .header a {
@@ -77,6 +77,37 @@
   min-height: calc( 100vh - 190px);
   background: #fafafa;
   padding: 20px;
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  color: inherit;
+  border: 1px solid #eaeaea;
+  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.card:hover {
+  color: #0070f3;
+  border-color: #0070f3;
+  background: #fff;
+}
+
+.card h3 {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.card p {
+  margin: 0;
+  opacity: .6;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
 }
 
 .footer {

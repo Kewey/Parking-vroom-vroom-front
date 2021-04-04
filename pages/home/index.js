@@ -35,24 +35,24 @@ export default function Index() {
 					<h1>Bonjour Michel,</h1>
           <p>Que voulez vous faire aujourd'hui ?</p>
 
-          <div className="grid-3">
-            <Link href="/home">
-              <>
-              <h3>Ajouter une location</h3>
-              <p></p>
-              </>
+          <div className={styles.grid3}>
+            <Link href="/home/rent">
+              <div className={styles.card}>
+              <h3>J'ai une place de disponible</h3>
+              <p>Une place de disponible ? Proposez la à vos voisins</p>
+              </div>
             </Link>
             <Link href="/home">
-              <>
-              <h3></h3>
-              <p></p>
-              </>
+              <div className={styles.card}>
+              <h3>J'ai besoin d'une place</h3>
+              <p>Des amis ou de la famille vous rend visite ? il y a peut etre une place disponible</p>
+              </div>
             </Link>
             <Link href="/home">
-              <>
-              <h3></h3>
+              <div className={styles.card}>
+              <h3>Gérer mes places</h3>
               <p></p>
-              </>
+              </div>
             </Link>
           </div>
 				</section>
