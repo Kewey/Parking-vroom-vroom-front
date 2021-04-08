@@ -2,13 +2,23 @@ import Head from 'next/head'
 import Link from 'next/link'
 import styles from '../../styles/App.module.scss'
 import Layout from '../../components/Layout'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+import dayjs from 'dayjs'
 
 export default function Index() {
 
-	const { register, handleSubmit, formState : {errors}} = useForm()
+	const { register, handleSubmit, watch, formState : {errors}, control} = useForm()
 
-	const onSubmit = (data) => console.log(`data`, data)
+	const onSubmit = (data) => {
+		const {startAt, endAt} = data
+
+		fetch('https://parking-vroom-vroom-api.herokuapp.com/api/available_places?startedAt[after]=' + dayjs(startAt).format('YYYY-MM-DD 00:00:00') + '&finishedAt[before]=' + dayjs(endAt).format('YYYY-MM-DD 00:00:00')).then(res => console.log(`res`, res))
+
+	}
+
+	const [ startDate, endDate ] = watch(["startAt", "endAt"]);
 
 	return (
 		<div className={styles.container}>
@@ -28,13 +38,51 @@ export default function Index() {
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<div>
 									<label htmlFor="startAt">A partir de</label>
-									<input {...register('startAt', {required: 'Il me manque le début de votre location', valueAsDate: true})}  type="date" />
-									{errors.startAt && <p>OSKUR</p>}
+									<Controller
+										control={control}
+										name="startAt"
+										defaultValue={startDate}
+										render={({ field: { onChange, onBlur, value } }) =>
+											<DatePicker
+												id="startAt"
+												onChange={onChange}
+												onBlur={onBlur}
+												selected={value}
+												selectsStart
+												dateFormat="dd/MM/yyyy"
+												className="input"
+												placeholderText="Select date"
+												minDate={new Date()}
+												startDate={startDate}
+												endDate={endDate}
+											/>
+										}
+									/>
+									{errors.startAt && <p>{errors.startAt.message}</p>}
 								</div>
 								<div>
 									<label htmlFor="endAt">Jusqu'au</label>
-									<input {...register('endAt', {required: 'Il me manque la fin de votre location', valueAsDate: true})} type="date" id="endAt" name="endAt"/>
-									{errors.endAt && <p>OSKUR</p>}
+									<Controller
+										control={control}
+										name="endAt"
+										defaultValue={endDate}
+										render={({ field: { onChange, onBlur, value } }) =>
+											<DatePicker
+												id="endAt"
+												onChange={onChange}
+												onBlur={onBlur}
+												selected={value}
+												selectsEnd
+												dateFormat="dd/MM/yyyy"
+												className="input"
+												placeholderText="Select date"
+												minDate={new Date()}
+												startDate={startDate}
+												endDate={endDate}
+											/>
+										}
+									/>
+									{errors.endAt && <p>{errors.endAt.message}</p>}
 								</div>
 								<button type="submit">
 									<p>Rechercher</p>

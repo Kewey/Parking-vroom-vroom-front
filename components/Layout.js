@@ -5,7 +5,7 @@ import styles from '../styles/App.module.scss'
 export default function Layout({ children }) {
 	return (
 		<>
-			<sidebar>
+			<aside>
 				<div className={styles.sidebarMain}>
 					<img src='/logo-vroom-vroom.png' height={50} width={50} />
 					<h4>
@@ -19,7 +19,7 @@ export default function Layout({ children }) {
 					<Link href='/home/location'>Mes locations</Link>
 					<Link href='/home/place'>Mes places</Link>
 				</nav>
-			</sidebar>
+			</aside>
 
 			<main className={styles.main}>
 				<header className={styles.header}>
