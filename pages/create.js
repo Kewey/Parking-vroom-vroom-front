@@ -36,38 +36,21 @@ export default function Create() {
 					<form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
 						<div className={styles.input}>
 							<label htmlFor='firstName'>Prénom</label>
-							<input
-								name='firstName'
-								id='firstName'
-								type='text'
-								ref={register({ required: true })}
-							/>
+							<input {...register('firstName', { required: true })} />
 						</div>
 						<div className={styles.input}>
 							<label htmlFor='lastName'>Nom</label>
-							<input
-								name='lastName'
-								id='lastName'
-								type='text'
-								ref={register({ required: true })}
-							/>
+							<input {...register('lastName', { required: true })} />
 						</div>
 						<div className={styles.input}>
 							<label htmlFor='email'>E-mail</label>
-							<input
-								name='email'
-								id='email'
-								type='text'
-								ref={register({ required: true })}
-							/>
+							<input {...register('email', { required: true })} />
 						</div>
 						<div className={styles.input}>
 							<label htmlFor='password'>Mot de passe</label>
 							<input
-								name='password'
-								id='password'
 								type='password'
-								ref={register({ required: true })}
+								{...register('password', { required: true })}
 							/>
 						</div>
 						<button disabled={loading} type='submit'>
