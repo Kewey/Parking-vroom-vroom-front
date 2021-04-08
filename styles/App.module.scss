@@ -52,11 +52,6 @@
   background: #e1e1e1;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
 
 .header {
   height: 90px;
@@ -73,10 +68,25 @@
   font-weight: bold;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .main section {
   min-height: calc( 100vh - 190px);
   background: #fafafa;
   padding: 20px;
+}
+
+.main section h1 {
+  margin: 0;
+}
+
+.main section > p {
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .card {
@@ -85,13 +95,13 @@
   cursor: pointer;
   color: inherit;
   border: 1px solid #eaeaea;
-  transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+  background: #fff;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover {
   color: #0070f3;
   border-color: #0070f3;
-  background: #fff;
 }
 
 .card h3 {
@@ -104,10 +114,75 @@
   opacity: .6;
 }
 
-.grid3 {
+.grid23 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 2fr 1fr;
   column-gap: 30px;
+}
+
+.container label {
+  display: inline-flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: .9rem
+}
+
+.container input {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #a6a6a6;
+  outline: none;
+}
+
+.container input:focus, .container input:hover {
+  border-color: #0070f3;
+}
+
+.container button {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  padding: 0;
+  width: 100%;
+  min-height: 42px;
+  text-align: center;
+  justify-content: space-between;
+  font-weight: 700;
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: background .3s ease;
+
+  &:hover, &:focus {
+    background: #3694ff;
+  }
+
+  p {
+    margin: 12px;
+    opacity: 1;
+  }
+
+  div {
+    display: block;
+    background: #0056b9;
+    width: 42px;
+    height: 42px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      height: 20px;
+      width: 20px;
+    }
+  }
 }
 
 .footer {
