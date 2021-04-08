@@ -14,7 +14,7 @@ export default function Index() {
 	const onSubmit = (data) => {
 		const {startAt, endAt} = data
 
-		fetch('https://parking-vroom-vroom-api.herokuapp.com/api/available_places?startedAt[after]=' + dayjs(startAt).format('YYYY-MM-DD 00:00:00') + '&finishedAt[before]=' + dayjs(endAt).format('YYYY-MM-DD 00:00:00')).then(res => console.log(`res`, res))
+		fetch('https://parking-vroom-vroom-api.herokuapp.com/api/available_places?startedAt[before]=' + dayjs(startAt).toJSON() + '&finishedAt[after]=' + dayjs(endAt).toJSON()).then(res => console.log(`res`, res.data))
 
 	}
 
