@@ -28,31 +28,25 @@ export default function Index() {
 				'&finishedAt[after]=' +
 				dayjs(endAt).toString()
 		).then((response) =>
-			console.log(
-				`response`,
-				response.json().then((res) => {
-					console.log(`res`, res)
-					setSearch(res['hydra:member'])
-
-					console.log(`search`, search)
-				})
-			)
+			response.json().then((res) => {
+				setSearch(res['hydra:member'])
+			})
 		)
 	}
 
 	const [startDate, endDate] = watch(['startAt', 'endAt'])
 
 	function rentPlace(selectedPlace) {
-		console.log(`dayjs(startAt).toString()`, startAt)
 		fetch('https://parking-vroom-vroom-api.herokuapp.com/api/rents', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
+				Authorization: 'Bearer ',
 			},
 			body: JSON.stringify({
 				place: selectedPlace.place,
-				startedAt: dayjs(startDate).toString(),
-				finishedAt: dayjs(endDate).toString(),
+				startedAt: startDate,
+				finishedAt: endDate,
 			}),
 		}).then((res) => console.log(`res`, res))
 	}
@@ -151,27 +145,32 @@ export default function Index() {
 				</div>
 
 				<section>
-					{search?.map((avaiblePlace) => (
-						<div key={avaiblePlace.id} className={styles.card}>
-							<div className={styles.row}>
-								<div>
-									<h3>{avaiblePlace.place}</h3>
-									<p>
-										Disponible du :{' '}
-										{dayjs(avaiblePlace.startedAt).format('DD MMMM YYYY', 'fr')}{' '}
-										au{' '}
-										{dayjs(avaiblePlace.finishedAt).format(
-											'DD MMMM YYYY',
-											'fr'
-										)}
-									</p>
+					{search?.map((avaiblePlace) => {
+						return (
+							<div key={avaiblePlace.place} className={styles.card}>
+								<div className={styles.row}>
+									<div>
+										<h3>{avaiblePlace.place}</h3>
+										<p>
+											Disponible du :{' '}
+											{dayjs(avaiblePlace.startedAt).format(
+												'DD MMMM YYYY',
+												'fr'
+											)}{' '}
+											au{' '}
+											{dayjs(avaiblePlace.finishedAt).format(
+												'DD MMMM YYYY',
+												'fr'
+											)}
+										</p>
+									</div>
+									<button type='submit' onClick={() => rentPlace(avaiblePlace)}>
+										<p>Réserver cette place</p>
+									</button>
 								</div>
-								<button type='submit' onClick={() => rentPlace(avaiblePlace)}>
-									<p>Réserver cette place</p>
-								</button>
 							</div>
-						</div>
-					))}
+						)
+					})}
 				</section>
 			</Layout>
 		</div>
