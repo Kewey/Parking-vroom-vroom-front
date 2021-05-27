@@ -53,7 +53,6 @@ export default function Index() {
 				place: selectedPlace.place,
 				startedAt: dayjs(startDate).toString(),
 				finishedAt: dayjs(endDate).toString(),
-				usedBy: '/api/users/38',
 			}),
 		}).then((res) => console.log(`res`, res))
 	}
@@ -167,7 +166,7 @@ export default function Index() {
 										)}
 									</p>
 								</div>
-								<button type='submit' onClick={rentPlace(avaiblePlace)}>
+								<button type='submit' onClick={() => rentPlace(avaiblePlace)}>
 									<p>Réserver cette place</p>
 								</button>
 							</div>
