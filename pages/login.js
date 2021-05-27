@@ -24,7 +24,17 @@ export default function Login() {
 				email: email,
 				password: password,
 			}),
-		}).then((response) => console.log(`response`, response))
+		}).then((response) =>
+			response.json().then((res) => {
+				if (!res) {
+					return
+				}
+
+				window.location.replace(
+					'https://parking-vroom-vroom-front.vercel.app/home'
+				)
+			})
+		)
 	}
 
 	return (
