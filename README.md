@@ -1,34 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Projet Symfony 4.22 par Tom Siatka & Jordan Souchez
 
-## Getting Started
+# Initialisation
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Application de parking pour résidence. Elle permet à un utilisateur de se connecter à une résidence et de proposer sa place de parking lorsqu'il part en vacances / weekend. A l'inverse les autres utilisateurs peuvent voir les places disponibles afin de ne pas gêner les autres.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Pour se connecter au front et/ou au back :
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+email : [admin@vroomvroom.com](mailto:admin@vroomvroom.com)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+mdp : 123456
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+API et Backoffice Easyadmin :
 
-## Learn More
+[Parking Vroum Vroum - Administration](http://parking-vroom-vroom-api.herokuapp.com/)
 
-To learn more about Next.js, take a look at the following resources:
+[github Back/API](https://github.com/Kewey/Parking-vroom-vroom)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Front :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[Vroom vroom](https://parking-vroom-vroom-front.vercel.app/)
 
-## Deploy on Vercel
+[github Front](https://github.com/Kewey/Parking-vroom-vroom-front)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Structure de la BDD
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+[User](https://www.notion.so/7963d43865b0449d83ea47253858b27a)
+
+[Résidence](https://www.notion.so/5da85829d9f941f58286071c2479a9c4)
+
+[Parking](https://www.notion.so/6b172e53f6ca466bb3007404ac96cb64)
+
+[Place](https://www.notion.so/5acdebb44d924c27a665b318a6a0561a)
+
+[Rent](https://www.notion.so/3caced0c1a0b4e419474895bc4861453)
+
+# Todo
+
+---
+
+[Roadmap](https://www.notion.so/25f24a45a06749bb9d9ff106003f9909)
+
+---
+
+# Librairies, bundles et frameworks utilisés
+
+---
+
+[Symfony current Documentation](https://symfony.com/doc/current/index.html)
+
+[EasyAdmin (Symfony Bundles Docs)](https://symfony.com/doc/current/bundles/EasyAdminBundle/index.html)
+
+[API Platform](https://api-platform.com/docs/distribution/#using-symfony-and-composer)
+
+[Develop. Preview. Ship. For the best frontend teams - Vercel](https://vercel.com/)
+
+[Heroku](https://id.heroku.com/login)
